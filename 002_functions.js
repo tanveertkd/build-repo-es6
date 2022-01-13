@@ -102,6 +102,9 @@ const mergeArray = ((a1, a2) => console.log([...a1, ...a2]))([1,2,3], [4, 5, 6])
         
 const mergeAllArray = ((...n) => console.log([...n].flat()))([1,2,3], [4, 5, 6],  [7, 8, 9]);
 
+//Another way to merge n arrays
+const mergeArrays = ((...args) => console.log([].concat(...args)))([1,2,3], [4, 5, 6],  [7, 8, 9]);
+
 /*
     5. Given a string and an index, your function should return the character present at that index in the string.
     Example:
@@ -119,9 +122,41 @@ const charLocation = ((string, index) => console.log(string.charAt(index)))("neo
 const minDate = ((dateOne, dateTwo) => console.log((new Date(dateOne)<new Date(dateTwo))?dateOne:dateTwo))('02/05/2021', '24/01/2021')
 
 //Advanced
+/*
+    1. Write a function which generates a secret code from a given string, by shifting characters of alphabet by N places. Example:
+    Input: encodeString("neogcamp", 2) ––> Output: pgqiecor
+    Explanation: 2 represents shifting alphabets by 2 places. a –> c, b –> d, c –> e and so on.
+*/
+
+const encodeString = ((str, key) => {
+    const strArray = str.split('').map(ch => {
+        const enc = ch.charCodeAt()+key;
+        console.log(enc)
+        return String.fromCharCode(enc);
+
+    }).join('');
+    console.log(strArray)
+    
+})("neogcamp", 2);
 
 /*  2. Given a sentence, return a sentence with first letter of all words as capital.
     Example:
     Input: toSentenceCase('we are neoGrammers') ––> Output: We Are NeoGrammers  */
 
 const toSentenceCase = (sentence => console.log(sentence.split(" ").map((word) => word[0].toUpperCase()+word.slice(1)).join(" ")))("we are neoGrammers");
+
+/*
+    3. Given an array of numbers, your function should return an array in the ascending order.
+    Example:
+    Input: sortArray([100,83,32,9,45,61]) ––> Output: [9,32,45,61,83,100]
+*/
+
+const sortArray = (array => console.log(array.sort((a,b)=>a-b)))([100,83,32,9,45,61]);
+
+/*
+    4. Given a sentence, your function should reverse the order of characters in each word, keeping same sequence of words.
+    Example:
+    Input: reverseCharactersOfWord('we are neoGrammers') –––> Output: ew era sremmarGoen
+ */
+
+    const reverseCharactersOfWord = (string => console.log(string.split(' ').map(word => word.split('').reverse().join('')).join(' ')))("we are neoGrammers");
