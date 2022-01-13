@@ -49,6 +49,75 @@ const typeOfTriangle = ((a, b, c) => {
         console.log("Scalene");
 })(30, 60, 90);
 
+
+//Medium
+
+/*
+    1.  Given an array, your function should return the length of the array.
+        Example:
+        Input: arrayLength([1,5,3,7,8]) ––> Output: 5
+*/
+
+const arrayLength = (array => console.log(array.length))([1,5,3,7,8]) 
+
+/*
+    2.  Given an array and an item, your function should return the index at which the item is present.
+        Example:
+        Input: indexOf([1,6,3,5,8,9], 3) ––> Output: 2
+*/
+
+const findIndex = ((array, item) =>  console.log(array.includes(item)?array.indexOf(item):null))([1,6,3,5,8,9], 3);
+
+/*
+    3.  Given an array and two numbers, your function should replace all entries of first number in an array with the second number.
+        Example:
+        Input: replace([1,5,3,5,6,8], 5, 10) ––> Output: [1,10,3,10,6,8]
+*/
+
+const replaceEntries = ((array, a, b) => {
+    for(let i = 0; i<=array.length; i++){
+        const oldItem = array.indexOf(a);
+        if(~oldItem){
+            array[oldItem] = b;
+        }
+    }
+    console.log(array)
+})([1,5,3,5,6,8,5], 5, 10)
+
+//es6 way
+const replaceEntries2 = ((array, a, b)=> console.log(array.map(item => item===a?b:item)))([1,5,3,5,6,8], 5, 10); 
+
+/*  
+        4.Given two arrays, your function should return single merged array.
+        Example:
+        Input: mergeArray([1,3,5], [2,4,6]) ––> Output: [1,3,5,2,4,6]   
+*/
+
+const mergeArray = ((a1, a2) => console.log([...a1, ...a2]))([1,2,3], [4, 5, 6]);
+
+/*      EXTRA QUESTION - Given n arrays, your function should return single merged array.
+        Example:
+        Input: mergeArray([1,3,5], [2,4,6]) ––> Output: [1,3,5,2,4,6]   
+*/
+        
+const mergeAllArray = ((...n) => console.log([...n].flat()))([1,2,3], [4, 5, 6],  [7, 8, 9]);
+
+/*
+    5. Given a string and an index, your function should return the character present at that index in the string.
+    Example:
+    Input: charAt("neoGcamp", 4) ––> Output: c
+*/
+
+const charLocation = ((string, index) => console.log(string.charAt(index)))("neoGcamp", 4); 
+
+/*
+    6. Given two dates, your function should return which one comes before the other.
+    Example:
+    Input: minDate('02/05/2021', '24/01/2021') ––> Output: 24/01/2021
+*/
+
+const minDate = ((dateOne, dateTwo) => console.log((new Date(dateOne)<new Date(dateTwo))?dateOne:dateTwo))('02/05/2021', '24/01/2021')
+
 //Advanced
 
 /*  2. Given a sentence, return a sentence with first letter of all words as capital.
